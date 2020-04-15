@@ -15,21 +15,52 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a href="#">Select your question<div id="down-triangle"></div></a>
-					<ul>
-						<li><a href="#">Range of incubation periods for the disease in humans<div class="circle"></div></a></li>
-						<li><a href="#">Prevalence of asymptomatic shedding and transmission<div class="circle"></div></a></li>
-						<li><a href="#">Seasonality of transmission<div class="circle"></div></a></li>
-						<li><a href="#">Physical science of the coronavirus<div class="circle"></div></a></li>
-						<li><a href="#">Persistence and stability on a multitude of substrates and sources<div class="circle"></div></a></li>
-						<li><a href="#">Persistence of virus on surfaces of different materials<div class="circle"></div></a></li>
-						<li><a href="#">Natural history of the virus and shedding of it from an infected person<div class="circle"></div></a></li>
-						<li><a href="#">Implementation of diagnostics and products to improve clinical processes<div class="circle"></div></a></li>
-						<li><a href="#">Disease models, including animal models for infection, disease and transmission<div class="circle"></div></a></li>
-						<li><a href="#">Tools and studies to monitor phenotypic change and potential adaptation of the virus<div class="circle"></div></a></li>
-						<li><a href="#">Immune response and immunity<div class="circle"></div></a></li>	
-					</ul>
+				<li>
+					<button class="accordeon">Range of incubation periods for the disease in humans</button>
+					<div class="panel">
+						<ul>
+							<li>
+								<button class="accordeon">Ololo test1</button>
+								<div class="panel">
+									Ebala sobacha	 1
+								</div>
+							</li>
+							<li>
+								<button class="accordeon">Ololo test2 </button>
+								<div class="panel">
+									Ebala sobacha	 2
+								</div>
+							</li>
+							<li>
+								<button class="accordeon">Ololo test3 </button>
+								<div class="panel">
+									Ebala sobacha	 3
+								</div>
+							</li>
+						</ul>		
+					</div>
 				</li>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				<li><a href="#">Prevalence of asymptomatic shedding and transmission<div class="down-triangle"></div></a></li>
+				<li><a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion">Seasonality of transmission<div class="down-triangle"></div></a></li>
+				<li><a href="#">Physical science of the coronavirus<div class="down-triangle"></div></a></li>
+				<li><a href="#">Persistence and stability on a multitude of substrates and sources<div class="down-triangle"></div></a></li>
+				<li><a href="#">Persistence of virus on surfaces of different materials<div class="down-triangle"></div></a></li>
+				<li><a href="#">Natural history of the virus and shedding of it from an infected person<div class="down-triangle"></div></a></li>
+				<li><a href="#">Implementation of diagnostics and products to improve clinical processes<div class="down-triangle"></div></a></li>
+				<li><a href="#">Disease models, including animal models for infection, disease and transmission<div class="down-triangle"></div></a></li>
+				<li><a href="#">Tools and studies to monitor phenotypic change and potential adaptation of the virus<div class="down-triangle"></div></a></li>
+				<li><a href="#">Immune response and immunity<div class="down-triangle"></div></a></li>	
 			</ul>
 		</nav>
 	</body>
@@ -78,10 +109,7 @@
 			display: inline-table;
 		}
 		
-		nav ul ul {
-			display: none;
-		}
-		
+	
 		nav ul li:hover > ul {
 			display: block;
 		}
@@ -92,42 +120,21 @@
 			text-align: left;
 			border-bottom: 3px solid #05a520; 
 		}
-			
-		nav ul li:hover {
-			background: #f2f2f2;
-		}
 		
 		nav ul li a {
 			display: block; 
 			padding: 15px 10px;
 			color: #05a520; 
 			text-decoration: none;
-		}
-							
-		nav ul ul {
-			border-radius: 0px; 
-			padding: 0;
-			position: absolute; 
-			top: 100%;
+			background: #e8f1af;
 		}
 		
-		nav ul ul li {
-			float: none;
-			border-bottom: 2px solid #eaeaea; 
-			position: relative;
-		}
-		
-		nav ul ul li a {
-			padding: 15px 10px;
-			color: #838383;
-		}	
-		
-		nav ul ul li a:hover {
+		nav ul li a:hover {
 			background: #05a520;
 			color: #fff;
 		}	
 		
-		#down-triangle {
+		.down-triangle {
 			float: right;
 			width: 0; 
 			height: 0;
@@ -136,19 +143,46 @@
 		    border-left: 10px solid transparent; 
 		    border-right: 10px solid transparent; 
 		}
+	</style>
+
+	<style>
+		.accordeon {
+		  background-color: #eee;
+		  color: #444;
+		  cursor: pointer;
+		  padding: 18px;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		  transition: 0.4s;
+		}
 		
-		.circle {
-			float: right;
-			display: inline;
-			width: 10px;
-			height: 10px; 
-			margin-top: 5px;
-			border: 3px solid #8ce5b2;
-			-moz-border-radius: 100%; 
-			-webkit-border-radius: 100%; 
-			border-radius: 100%;
+		.active, .accordeon:hover {
+		  background-color: #ccc; 
+		}
+		
+		.panel {
+		  padding: 0 18px;
+		  display: none;
+		  background-color: white;
+		  overflow: hidden;
 		}
 	</style>
+
+	<script>
+		const accordeon = document.getElementsByClassName("accordeon");
+		
+		for (let i = 0; i < accordeon.length; i += 1) {
+			accordeon[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+
+			const panel = this.nextElementSibling;
+			panel.style.display = panel.style.display === "block" ? "none" : "block";
+		  });
+		}
+	</script>
 
 </html>
 
