@@ -1,11 +1,13 @@
 function createTOC(){
+	console.log("createTOC started");
     var toc = "";
     var level = 0;
     var levels = {}
     $('#toc').html('');
 
     $(":header").each(function(i){
-        if (this.id =='tocheading' || this.hasAttribute('data-skip-toc')) return;
+		console.log("LOOP: ", this, this.id, this.hasAttribute('data-skip-toc'));
+        if (this.id =='tocheading' || this.hasAttribute('data-skip-toc')) {return;}
         
 	    var titleText = this.innerHTML;
 	    var openLevel = this.tagName[1];
@@ -41,7 +43,9 @@ function createTOC(){
     }
 
  
-    $('#toc').append(toc);
+	$('#toc').append(toc);
+	console.log("createTOC finished");
+	console.log("**********************************************************************");
 };
 
 // Executes the createToc function
