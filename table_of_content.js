@@ -3,11 +3,11 @@ function createTOC(){
     var toc = "";
     var level = 0;
     var levels = {}
-    $('#toc').html('');
+    $("#toc").html("");
 
     $(":header").each(function(i){
-		console.log("LOOP: ", this, this.id, this.hasAttribute('data-skip-toc'));
-        if (this.id =='tocheading' || this.hasAttribute('data-skip-toc')) {return;}
+		console.log("LOOP: ", this, this.id, this.hasAttribute("data-skip-toc"));
+        if (this.id =="tocheading" || this.hasAttribute("data-skip-toc")) {return;}
         
 	    var titleText = this.innerHTML;
 	    var openLevel = this.tagName[1];
@@ -19,7 +19,7 @@ function createTOC(){
 	    }
 
 	    if (openLevel > level) {
-		    toc += (new Array(openLevel - level + 1)).join('<ul class="toc">');
+		    toc += (new Array(openLevel - level + 1)).join("<ul class=\"toc\">");
 	    } else if (openLevel < level) {
 		    toc += (new Array(level - openLevel + 1)).join("</ul>");
 		    for (i=level;i>openLevel;i--){levels[i]=0;}
@@ -28,12 +28,12 @@ function createTOC(){
 	    level = parseInt(openLevel);
 
 
-	    if (this.id==''){this.id = this.innerHTML.replace(/ /g,"-")}
+	    if (this.id==""){this.id = this.innerHTML.replace(/ /g,"-")}
 	    var anchor = this.id;
         
-	    toc += '<li><a href="#' + encodeURIComponent(anchor) + '">'
-		+ romanize(levels[openLevel].toString()) + '. ' + titleText
-		+ '</a></li>';
+	    toc += "<li><a href=\"#" + encodeURIComponent(anchor) + "\">"
+		+ romanize(levels[openLevel].toString()) + ". " + titleText
+		+ "</a></li>";
         
 	});
 
@@ -43,7 +43,7 @@ function createTOC(){
     }
 
  
-	$('#toc').append(toc);
+	$("#toc").append(toc);
 	console.log("createTOC finished");
 	console.log("**********************************************************************");
 };
